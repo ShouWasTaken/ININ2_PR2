@@ -3,9 +3,12 @@ public class Human{
     String lastname;
     final Integer yearOfBirth;
     Animal pet;
+    Car car;
 
-    Human(Integer yearOfBirth){
+    Human(Integer yearOfBirth, String firstname, String lastname){
         this.yearOfBirth = yearOfBirth;
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
 
 }
