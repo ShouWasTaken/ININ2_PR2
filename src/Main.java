@@ -1,5 +1,26 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Animal dog = new Animal("canis");
+        dog.name = "Szarik";
+        dog.takeForAWalk();
+        dog.takeForAWalk();
+        dog.takeForAWalk();
+        dog.takeForAWalk();
+        dog.takeForAWalk();
+        dog.takeForAWalk();
+        dog.takeForAWalk();
+        dog.takeForAWalk();
+        dog.takeForAWalk();
+        dog.takeForAWalk();
+        dog.takeForAWalk();
+        dog.feed();
+
+
+
+
+
+
+
+
     }
 }
