@@ -5,6 +5,15 @@ public class Car {
     String color;
     Double mileage;
     Boolean ison;
+    private Double price =0.0;
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
 
     public Car(String brand, String model) {
         this.brand = brand;
