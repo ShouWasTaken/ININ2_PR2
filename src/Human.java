@@ -1,3 +1,5 @@
+import devices.Car;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -52,5 +54,8 @@ public class Human {
         } else {
             System.out.println("Znajdź lepszą robotę albo proś o podwyżkę");
         }
+    }
+    public String toString() {
+        return this.firstname + " " + this.lastname + " " + this.yearOfBirth + " " + this.salary;
     }
 }

@@ -9,7 +9,7 @@ public class Animal {
     String name;
     Boolean isAlive;
 
-    public Animal(String species){
+    public Animal(String species, String name){
         this.isAlive = true;
         this.species = species;
         switch(species){
@@ -35,5 +35,8 @@ public class Animal {
         if (this.weight <= 0) {
             System.out.println("Pet is dead");
         }
+    }
+    public String toString() {
+        return this.name + " " + this.species + " " + this.weight;
     }
 }
