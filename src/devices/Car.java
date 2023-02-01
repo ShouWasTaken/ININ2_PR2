@@ -1,14 +1,14 @@
 package devices;
 
-public class Car {
-    final String brand;
+public class Car extends Device {
+    final String producer;
 
     final String model;
     String color;
     Double mileage;
     Boolean ison;
-    public Car(String brand, String model, String color, Double mileage) {
-        this.brand = brand;
+    public Car(String producer, String model, String color, Double mileage) {
+        this.producer = producer;
         this.model = model;
         this.color = color;
         this.mileage = mileage;
@@ -22,7 +22,13 @@ public class Car {
         this.price = price;
     }
     public String toString() {
-        return this.brand + " " + this.model + " " + this.color + " " + this.mileage + " " + this.price;
+        return this.producer + " " + this.model + " " + this.color + " " + this.mileage + " " + this.price;
+    }
+
+    public void turnOn(){
+        System.out.println("Przekręcasz kluczyk");
+        System.out.println("Auto kręci, coś nie odpala");
+        System.out.println("Uff, jednak odpaliło");
     }
 
 

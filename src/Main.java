@@ -3,7 +3,7 @@ import devices.Phone;
 
 public class Main {
     public static void main(String[] args) {
-        Car car = new Car("Porche", "Cayenne", "Black", 2020.5);
+       /*
         Car car2 = new Car("Porche", "Cayenne", "Black", 2020.5);
         System.out.println(car.equals(car2));
         System.out.println(car);
@@ -14,6 +14,10 @@ public class Main {
         Phone phone = new Phone("Samsung", "A3", 2020, true);
         System.out.println(human);
         System.out.println(animal);
-        System.out.println(phone);
+        System.out.println(phone); */
+        Car car = new Car("Porche", "Cayenne", "Black", 2020.5);
+        Phone phone = new Phone("Apple", "IPhone 11 Pro", 2018, false);
+        phone.turnOn();
+        car.turnOn();
     }
 }
