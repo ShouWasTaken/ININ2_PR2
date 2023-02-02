@@ -1,27 +1,21 @@
 package creatures;
 
-import creatures.Animal;
 import devices.Car;
 import devices.Phone;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class Human {
     String firstname;
     String lastname;
-    final Integer yearOfBirth;
+    Integer yearOfBirth;
     private Animal pet;
     private Phone phone;
     private Car[] garage;
     private static final int DEFAULT_GARAGE_SIZE = 5;
-    private Double salary = 0.0;
-    Date dateOfChange = new Date();
-    private Double previousSalary = 0.0;
+   // private Double salary = 0.0;
+   // Date dateOfChange = new Date();
     private Double cash = 0.0;
 
-    public Double getsalary() {
+   /* public Double getsalary() {
         System.out.println("Ostatnie pobieranie infromacji o twojej wyplacie: " + dateOfChange + " a twoja wyplata wynosila " + salary); // Mała korekta co do taska 4, który był wcześniej zrobiony eksperymentalnie na labach
         return salary;
     }
@@ -38,6 +32,8 @@ public class Human {
     }
 }
 
+    */
+
     public Human(Integer yearOfBirth){
         this.yearOfBirth = yearOfBirth;
         garage = new Car[DEFAULT_GARAGE_SIZE];
@@ -49,7 +45,7 @@ public class Human {
         garage = new Car[garageSize];
     }
 
-    public Car getCar(int parkingPlace) {
+    public Car getCar(Car car1, int parkingPlace) {
         if (parkingPlace < 0 || parkingPlace >= garage.length) {
             System.out.println("Źle podane miescje");
         }
@@ -135,4 +131,5 @@ public class Human {
             }
         }
     }
+
 }

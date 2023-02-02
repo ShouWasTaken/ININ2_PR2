@@ -1,6 +1,10 @@
 package devices;
 import creatures.Human;
 import main.sellable;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Car extends Device implements sellable {
     final String producer;
 
@@ -8,6 +12,8 @@ public abstract class Car extends Device implements sellable {
     String color;
     Double mileage;
     Boolean ison;
+    public List<Human> ownersList = new ArrayList<>();
+    public Human owner;
 
     public Car(String producer, String model, String color, Double mileage) {
         this.producer = producer;
@@ -36,6 +42,9 @@ public abstract class Car extends Device implements sellable {
         if (!seller.hasACar(this)) throw new Exception("Sprzedajacy nie ma auta");
         if (!buyer.hasSpace()) throw new Exception("Brak miejsca w garazu");
         if (buyer.getCash() < price) throw new Exception("Brak pieniedzy");
+        if (getOwner() != seller) throw new Exception("Sprzedawca chce sprzedać nie swoje auto");
+
+        ownersList.add(buyer);
         buyer.addCar(this);
         seller.removeCar(this);
         buyer.setCash(buyer.getCash() - price);
@@ -44,6 +53,23 @@ public abstract class Car extends Device implements sellable {
 
         }
    public abstract void refuel();
+    public Human getOwner(){
+        return ownersList.get(ownersList.size() - 1);
+    }
+    public void setOwner(Human human){
+        this.ownersList.add(human);
+    }
+    public int getOwnersList(){
+        return ownersList.size() - 1;
+    }
+    public boolean wasOwner(Human human){
+        return ownersList.contains(human);
+    }
+    public boolean wasSoldBetween(Human seller, Human buyer) {
+        int index1 = ownersList.indexOf(seller);
+        int index2 = ownersList.indexOf(buyer);
+        return index1 != -1 && index2 != -1 && index1 < index2;
+    }
 
 
 
