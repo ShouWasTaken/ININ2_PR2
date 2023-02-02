@@ -6,6 +6,7 @@ import devices.Phone;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Human {
     String firstname;
@@ -15,31 +16,27 @@ public class Human {
     private Phone phone;
     private Car[] garage;
     private static final int DEFAULT_GARAGE_SIZE = 5;
-   // private Double salary = 0.0;
-   // private LocalDateTime getSalaryDate = null;
-   // private Double previousSalary = 0.0;
+    private Double salary = 0.0;
+    Date dateOfChange = new Date();
+    private Double previousSalary = 0.0;
     private Double cash = 0.0;
 
-    /*public Double getsalary() {
-        System.out.print("Pobieranie danych o ostatniej wypłacie: ");
-        System.out.println(getSalaryDate == null ? "null" : getSalaryDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
-        System.out.println("Poprzednia wypłata: " + previousSalary);
-        getSalaryDate = LocalDateTime.now();
-        previousSalary = salary;
+    public Double getsalary() {
+        System.out.println("Ostatnie pobieranie infromacji o twojej wyplacie: " + dateOfChange + " a twoja wyplata wynosila " + salary); // Mała korekta co do taska 4, który był wcześniej zrobiony eksperymentalnie na labach
         return salary;
-    }*/
+    }
 
-  /*  public void setSalary(Double salary) {
+   public void setSalary(Double salary) {
         if (salary < 0) {
             System.out.println("Pensja na minus. To tak się da?");
-            return;
-        }
+        } else{
         System.out.println("Wysłane do systemu");
         System.out.println("Trzeba odebrać aneks od pani Hani z kadr");
         System.out.println("Panowie z ZUS i US juz jadą, nie ma sensu nic ukrywać");
         this.salary = salary;
         System.out.println("Nowa pensja wynosi: " + salary);
-    }*/
+    }
+}
 
     public Human(Integer yearOfBirth){
         this.yearOfBirth = yearOfBirth;
