@@ -80,10 +80,15 @@ public class Human {
     }
 
     public void setCar(Car car, int parkingPlace) {
-        if (parkingPlace < 0 || parkingPlace >= garage.length || garage[parkingPlace] != null) {
-            System.out.println("Źle podane miejsce");
+        if (parkingPlace >= this.garage.length) {
+            System.out.println("Nie mamy takiego miejsca");
+        } else if (parkingPlace < 0) {
+            System.out.println("Brak garazu");
+        } else if (this.garage[parkingPlace] != null) {
+            System.out.println("Miejsce zajete");
+        } else {
+            this.garage[parkingPlace] = car;
         }
-        garage[parkingPlace] = car;
     }
 
     public String toString() {
@@ -94,11 +99,13 @@ public class Human {
     }
 
     public Double getCarsValue(){
-        double val = 0;
-        for(Car c: garage){
-            val += c.getValue();
+        Double total = 0.0;
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] != null) {
+                total += this.garage[i].getValue();
+            }
         }
-        return val;
+        return total;
     }
     public boolean hasACar(Car car) {
         for (Car a: garage) {
