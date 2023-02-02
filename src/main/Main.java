@@ -6,23 +6,14 @@ import creatures.Pet;
 import devices.*;
 
 public class Main {
-    public static void main(String[] args) {
-       /*
-        Car car2 = new Car("Porche", "Cayenne", "Black", 2020.5);
-        System.out.println(car.equals(car2));
-        System.out.println(car);
-        System.out.println(car2);
+    public static void main(String[] args) throws Exception {
 
-        creatures.Human human = new creatures.Human(1988, "Marek", "Marucha");
-        creatures.Animal animal = new creatures.Animal("canis", "Rafał");
-        Phone phone = new Phone("Samsung", "A3", 2020, true);
-        System.out.println(human);
-        System.out.println(animal);
-        System.out.println(phone); */
-        Phone phone = new Phone("Apple", "IPhone 11 Pro", 2018, false);
-        Animal pet = new Pet("fenis");
         Car car = new Electric("Audi", "E-tron", "Black", 0.0);
-        System.out.println(car);
-        car.refuel();
+        Human seller = new Human(1999, "Marek", "Marucha", 5);
+        Human buyer = new Human(1999, "Robert", "Pędziwiatr", 3);
+        seller.setCar(car, 2);
+        buyer.setCash(1000.0);
+        car.sell(buyer, seller, 3000.0);
+
     }
 }

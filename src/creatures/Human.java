@@ -13,7 +13,8 @@ public class Human {
     final Integer yearOfBirth;
     private Animal pet;
     private Phone phone;
-    private Car car;
+    private Car[] garage;
+    private static final int DEFAULT_GARAGE_SIZE = 5;
    // private Double salary = 0.0;
    // private LocalDateTime getSalaryDate = null;
    // private Double previousSalary = 0.0;
@@ -40,15 +41,23 @@ public class Human {
         System.out.println("Nowa pensja wynosi: " + salary);
     }*/
 
-    public Human(Integer yearOfBirth, String firstname, String lastname) {
+    public Human(Integer yearOfBirth){
+        this.yearOfBirth = yearOfBirth;
+        garage = new Car[DEFAULT_GARAGE_SIZE];
+    }
+    public Human(Integer yearOfBirth, String firstname, String lastname, Integer garageSize) {
         this.yearOfBirth = yearOfBirth;
         this.firstname = firstname;
         this.lastname = lastname;
+        garage = new Car[garageSize];
     }
 
-    public Car getCar() {
-        return car;
-    }
+    public Car getCar(int parkingPlace) {
+        if (parkingPlace < 0 || parkingPlace >= garage.length) {
+            System.out.println("Źle podane miescje");
+        }
+            return garage[parkingPlace];
+        }
     public Animal getPet(){
         return pet;
     }
@@ -70,23 +79,56 @@ public class Human {
         this.pet = pet;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
-      /*  if (this.salary > car.getPrice()) {
-            this.car = car;
-            System.out.println("Kupiono za gotówkę");
-        } else if (this.salary > car.getPrice() / 12) {
-            this.car = car;
-            System.out.println("Kupiono na kredyt");
-        } else {
-            System.out.println("Znajdź lepszą robotę albo proś o podwyżkę");
+    public void setCar(Car car, int parkingPlace) {
+        if (parkingPlace < 0 || parkingPlace >= garage.length || garage[parkingPlace] != null) {
+            System.out.println("Źle podane miejsce");
         }
-       */
+        garage[parkingPlace] = car;
     }
+
     public String toString() {
         return this.firstname + " " + this.lastname + " " + this.yearOfBirth + " ";
     }
     public void sell(Human buyer, Human seller, Double price) {
         System.out.println("Handel ludzmi jest zakazany");
+    }
+
+    public Double getCarsValue(){
+        double val = 0;
+        for(Car c: garage){
+            val += c.getValue();
+        }
+        return val;
+    }
+    public boolean hasACar(Car car) {
+        for (Car a: garage) {
+            if (a == car) return true;
+        }
+        return false;
+    }
+
+    public boolean hasSpace() {
+        for (int i = 0; i < garage.length; i++) {
+            if (garage[i] == null) return true;
+        }
+        return false;
+    }
+
+    public void addCar(Car car) {
+        for (int i = 0; i < garage.length; i++) {
+            if (garage[i] == null) {
+                garage[i] = car;
+                return;
+            }
+        }
+    }
+
+    public void removeCar(Car car) {
+        for (int i = 0; i < garage.length; i++) {
+            if (garage[i] == car) {
+                garage[i] = null;
+                return;
+            }
+        }
     }
 }

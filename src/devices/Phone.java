@@ -27,7 +27,7 @@ public class Phone extends Device implements sellable {
         System.out.println("Telefon się odpala");
     }
     public void sell(Human buyer, Human seller, Double price){
-        if(this.equals(seller.getCar()) && buyer.getCash() >= price){
+        if(this.equals(seller.getPhone()) && buyer.getCash() >= price){ // Tu malutka korekta co do zadania 8, zapomniałem zmienić z getCar po copy paste
             seller.setCash(seller.getCash() + price);
             buyer.setCash(buyer.getCash() - price);
             buyer.setPhone(this);

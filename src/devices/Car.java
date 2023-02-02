@@ -16,11 +16,11 @@ public abstract class Car extends Device implements sellable {
         this.mileage = mileage;
     }
     private Double price = 0.0;
-    public Double getPrice() {
+    public Double getValue() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setValue(Double price) {
         this.price = price;
     }
     public String toString() {
@@ -32,18 +32,17 @@ public abstract class Car extends Device implements sellable {
         System.out.println("Auto kręci, coś nie odpala");
         System.out.println("Uff, jednak odpaliło");
     }
-    public void sell(Human buyer, Human seller, Double price){
-        if(this.equals(seller.getCar()) && buyer.getCash() >= price){
-            seller.setCash(seller.getCash() + price);
-            buyer.setCash(buyer.getCash() - price);
-            buyer.setCar(this);
-            seller.setCar(null);
-            System.out.println("Zakupiono autko");
+    public void sell(Human buyer, Human seller, Double price) throws Exception{
+        if (!seller.hasACar(this)) throw new Exception("Sprzedajacy nie ma auta");
+        if (!buyer.hasSpace()) throw new Exception("Brak miejsca w garazu");
+        if (buyer.getCash() < price) throw new Exception("Brak pieniedzy");
+        buyer.addCar(this);
+        seller.removeCar(this);
+        buyer.setCash(buyer.getCash() - price);
+        seller.setCash(seller.getCash() + price);
+        System.out.println("Zakupiono auto");
+
         }
-        else{
-            System.out.println("Nie zakupiono autka :(");
-        }
-    }
    public abstract void refuel();
 
 
