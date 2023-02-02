@@ -3,8 +3,7 @@ package main;
 import creatures.Animal;
 import creatures.Human;
 import creatures.Pet;
-import devices.Car;
-import devices.Phone;
+import devices.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,16 +19,10 @@ public class Main {
         System.out.println(human);
         System.out.println(animal);
         System.out.println(phone); */
-        Car car = new Car("Porche", "Cayenne", "Black", 2020.5);
         Phone phone = new Phone("Apple", "IPhone 11 Pro", 2018, false);
         Animal pet = new Pet("fenis");
-
-        Human seller = new Human(2000, "Marek", "Marucha");
-        Human buyer = new Human(2000, "Robert", "Pędziwiatr");
-        seller.setCar(car);
-        buyer.setCash(8000.0);
-        car.sell(buyer, seller, 1000.0);
-        System.out.println(seller.getCash() + " " + buyer.getCash());
-        System.out.println(seller.getCar() + " " + buyer.getCar());
+        Car car = new Electric("Audi", "E-tron", "Black", 0.0);
+        System.out.println(car);
+        car.refuel();
     }
 }

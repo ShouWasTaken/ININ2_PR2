@@ -1,7 +1,7 @@
 package devices;
 import creatures.Human;
 import main.sellable;
-public class Car extends Device implements sellable {
+public abstract class Car extends Device implements sellable {
     final String producer;
 
     final String model;
@@ -44,6 +44,7 @@ public class Car extends Device implements sellable {
             System.out.println("Nie zakupiono autka :(");
         }
     }
+   public abstract void refuel();
 
 
 
