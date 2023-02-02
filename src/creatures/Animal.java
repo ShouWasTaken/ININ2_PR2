@@ -1,7 +1,7 @@
 package creatures;
 
 import main.sellable;
-public class Animal implements sellable {
+public abstract class Animal implements sellable, Feedable {
     private static final double DEFAULT_DOG_WEIGHT = 10.0;
     private static final double DEFAULT_CAT_WEIGHT = 5.0;
     private static final double DEFAULT_ELEPHANT_WEIGHT = 800.0;
@@ -12,7 +12,7 @@ public class Animal implements sellable {
     String name;
     Boolean isAlive;
 
-    public Animal(String species, String name) {
+    public Animal(String species) {
         this.isAlive = true;
         this.species = species;
         switch (species) {
@@ -66,5 +66,12 @@ public class Animal implements sellable {
     else{
         System.out.println("Nie udało się kupić zwierzaka");
     }
+    }
+    public void feed(double foodWeight){
+        weight += foodWeight;
+    }
+    public void beEaten() {
+        this.isAlive = false;
+        System.out.println("Zjadłeś " + species);
     }
 }

@@ -2,6 +2,7 @@ package main;
 
 import creatures.Animal;
 import creatures.Human;
+import creatures.Pet;
 import devices.Car;
 import devices.Phone;
 
@@ -21,7 +22,7 @@ public class Main {
         System.out.println(phone); */
         Car car = new Car("Porche", "Cayenne", "Black", 2020.5);
         Phone phone = new Phone("Apple", "IPhone 11 Pro", 2018, false);
-        Animal pet = new Animal("fenis", "Romper");
+        Animal pet = new Pet("fenis");
 
         Human seller = new Human(2000, "Marek", "Marucha");
         Human buyer = new Human(2000, "Robert", "Pędziwiatr");
